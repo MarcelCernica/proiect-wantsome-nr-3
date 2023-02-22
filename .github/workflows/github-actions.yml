@@ -11,9 +11,9 @@ jobs:
       - name: List 
         run: ls -alh
       - name: Build nginx image 
-        run: cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:test .
+        run: cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:latest .
       - name: Push nginx image
-        run: sudo docker push marcelcernica/new-nginx:test
+        run: sudo docker push marcelcernica/new-nginx:latest
       - name: Build mysql image 
         run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:test .
       - name: Push mysql image
