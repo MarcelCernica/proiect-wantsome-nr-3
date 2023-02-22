@@ -11,9 +11,15 @@ jobs:
       - name: List 
         run: ls -alh
       - name: Build nginx
-        run: cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:test .
+        run: |
+          cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:latest .
+          sudo docker push marcel/cernica/new-nginx:latest
       - name: Build mysql 
-        run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:test .
+        run: |
+          cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
+          sudo docker push marcelcernica/new-mysql:latest
       - name: Build wordpress
-        run: cd apps/wordpress && sudo docker build -t marcelcernica/new-mysql:test .
+        run: |
+          cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:latest .
+          sudo docker push marcelcernica/new-wordpress:latest
         
