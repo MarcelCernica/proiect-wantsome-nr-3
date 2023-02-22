@@ -25,7 +25,9 @@ jobs:
   docker-compose:
     runs-on: self-hosted
     step:
+      - name: List
+        run: ls -alh
       - name: Create containers and networks
         run: sudo docker-compose up -d
-        
+
         
