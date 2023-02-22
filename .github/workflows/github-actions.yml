@@ -10,16 +10,16 @@ jobs:
         uses: actions/checkout@v3
       - name: List 
         run: ls -alh
-      - name: Build nginx
-        run: |
-          cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:test .
-          sudo docker push marcel/cernica/new-nginx:test
-      - name: Build mysql 
-        run: |
-          cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:test .
-          sudo docker push marcelcernica/new-mysql:test
-      - name: Build wordpress
-        run: |
-          cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:test .
-          sudo docker push marcelcernica/new-wordpress:test
+      - name: Build nginx image 
+        run: cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:test .
+      - name: Push nginx image
+        run: sudo docker push marcelcernica/new-nginx:test
+      - name: Build mysql image 
+        run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:test .
+      - name: Push mysql image
+        run: sudo docker push marcelcernica/new-mysql:test
+      - name: Build wordpress image 
+        run: cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:test .
+      - name: Push wordpress image
+        run: sudo docker push marcelcernica/new-wordpress:test
         
