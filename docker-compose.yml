@@ -1,0 +1,40 @@
+version: '3'
+services:
+  nginx:
+    image: marcelcernica/new-nginx:test
+    ports:
+      - 80:80
+    depends_on:
+      - wordpress1
+      - wordpress2
+    networks:
+      - nginx_wordpress
+  wordpress1:
+    image: marcelcernica/new-wordpress:test
+    volumes:
+      - /var/wordpress:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - nginx_wordpress
+      - wordpress_mysql
+  wordpress2:
+    image: marcelcernica/new-wordpress:test
+    volumes:
+      - /var/wordpress:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - nginx_wordpress
+      - wordpress_mysql
+  mysql:
+    image: marcelcernica/new-mysql:test
+    volumes:
+      - /var/mysql:/var/lib/mysql
+    networks:
+      - wordpress_mysql
+networks:
+  nginx_wordpress:
+    driver: bridge
+  wordpress_mysql:
+    driver: bridge
