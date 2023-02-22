@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    image: marcelcernica/new-nginx:test
+    image: marcelcernica/new-nginx:latest
     ports:
       - 80:80
     depends_on:
@@ -10,7 +10,7 @@ services:
     networks:
       - nginx_wordpress
   wordpress1:
-    image: marcelcernica/new-wordpress:test
+    image: marcelcernica/new-wordpress:latest
     volumes:
       - /var/wordpress:/var/www/html
     depends_on:
@@ -19,7 +19,7 @@ services:
       - nginx_wordpress
       - wordpress_mysql
   wordpress2:
-    image: marcelcernica/new-wordpress:test
+    image: marcelcernica/new-wordpress:latest
     volumes:
       - /var/wordpress:/var/www/html
     depends_on:
@@ -28,7 +28,7 @@ services:
       - nginx_wordpress
       - wordpress_mysql
   mysql:
-    image: marcelcernica/new-mysql:test
+    image: marcelcernica/new-mysql:latest
     volumes:
       - /var/mysql:/var/lib/mysql
     networks:
