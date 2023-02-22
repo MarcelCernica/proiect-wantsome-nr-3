@@ -3,7 +3,7 @@ name: Deploy
 on: [push]
 
 jobs:
-  nginx: 
+  apps: 
     runs-on: self-hosted
     steps:
       - name: Check out repository code
