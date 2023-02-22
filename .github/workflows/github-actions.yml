@@ -15,11 +15,11 @@ jobs:
       - name: Push nginx image
         run: sudo docker push marcelcernica/new-nginx:latest
       - name: Build mysql image 
-        run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:test .
+        run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
       - name: Push mysql image
-        run: sudo docker push marcelcernica/new-mysql:test
+        run: sudo docker push marcelcernica/new-mysql:latest
       - name: Build wordpress image 
-        run: cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:test .
+        run: cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:latest .
       - name: Push wordpress image
-        run: sudo docker push marcelcernica/new-wordpress:test
+        run: sudo docker push marcelcernica/new-wordpress:latest
         
