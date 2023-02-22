@@ -22,4 +22,10 @@ jobs:
         run: cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:latest .
       - name: Push wordpress image
         run: sudo docker push marcelcernica/new-wordpress:latest
+  docker-compose:
+    runs-on: self-hosted
+    step:
+      - name: Create containers and networks
+        run: sudo docker-compose up -d
+        
         
