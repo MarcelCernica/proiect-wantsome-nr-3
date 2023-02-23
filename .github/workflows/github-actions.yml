@@ -16,12 +16,9 @@ jobs:
       - name: List 
         run: ls -alh
       - name: Build nginx image 
-        run: cd apps/nginx && sudo docker build -t marcelcernica/new-mysql:latest .
+        run: cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:latest .
       - name: Push nginx image
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
-        run: sudo docker push marcelcernica/new-nginx:latest
+        run: sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ DOCKER_TOKEN }} && sudo docker push marcelcernica/new-nginx:latest
       - name: Build mysql image 
         run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
       - name: Push mysql image
