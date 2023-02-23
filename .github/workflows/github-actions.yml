@@ -16,17 +16,21 @@ jobs:
       - name: List 
         run: ls -alh
       - name: Build nginx image 
-        run: cd apps/nginx && sudo docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/new-nginx:latest .
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: username/nginx:latest
       - name: Push nginx image
-        run: sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/new-nginx:latest
+        run: sudo docker push marcelcernica/new-nginx:latest
       - name: Build mysql image 
-        run: cd apps/mysql && sudo docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/new-mysql:latest .
+        run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
       - name: Push mysql image
-        run: sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/new-mysql:latest
+        run: sudo docker push marcelcernica/new-mysql:latest
       - name: Build wordpress image 
-        run: cd apps/wordpress && sudo docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/new-wordpress:latest .
+        run: cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:latest .
       - name: Push wordpress image
-        run: sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/new-wordpress:latest
+        run: sudo docker push marcelcernica/new-wordpress:latest
       - name: Build containers and networks
         run: sudo docker-compose up -d
 
