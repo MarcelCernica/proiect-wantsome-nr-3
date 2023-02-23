@@ -16,13 +16,13 @@ jobs:
       - name: List 
         run: ls -alh
       - name: Build nginx image 
+        run: cd apps/nginx && sudo docker build -t marcelcernica/new-mysql:latest .
+      - name: Push nginx image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: marcelcernica/new-nginx:latest
-      - name: Push nginx image
-        run: sudo docker push marcelcernica/new-nginx:latest
+          tags: username/nginx:latest
       - name: Build mysql image 
         run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
       - name: Push mysql image
