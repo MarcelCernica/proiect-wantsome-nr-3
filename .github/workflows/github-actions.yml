@@ -19,7 +19,7 @@ jobs:
         run: cd apps/nginx && sudo docker build -t marcelcernica/new-mysql:latest .
       - name: Push nginx image
         run: |
-          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
           sudo docker push marcelcernica/new-nginx:latest
       - name: Build mysql image 
         run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
