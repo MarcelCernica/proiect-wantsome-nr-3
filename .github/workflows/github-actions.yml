@@ -11,7 +11,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-        run: echo $DOCKERHUB_TOKEN | docker login --username $DOCKERHUB_USERNAME --password-stdin
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: List 
@@ -19,11 +18,11 @@ jobs:
       - name: Build nginx image 
         run: cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:latest .
       - name: Push nginx image
-        run: sudo docker push marcelcernica/new-nginx:latest
+        run: echo $DOCKERHUB_TOKEN | docker login --username $DOCKERHUB_USERNAME --password-stdin && sudo docker push marcelcernica/new-nginx:latest
       - name: Build mysql image 
         run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
       - name: Push mysql image
-        run: sudo docker push marcelcernica/new-mysql:latest
+        run: echo $DOCKERHUB_TOKEN | docker login --username $DOCKERHUB_USERNAME --password-stdinsudo docker push marcelcernica/new-mysql:latest
       - name: Build wordpress image 
         run: cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:latest .
       - name: Push wordpress image
