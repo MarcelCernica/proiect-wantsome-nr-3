@@ -18,11 +18,11 @@ jobs:
       - name: Build nginx image 
         run: cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:latest .
       - name: Push nginx image
-        run: sudo docker push marcelcernica/new-nginx:latest && echo $DOCKERHUB_TOKEN | docker login --username $DOCKERHUB_USERNAME --password-stdin
+        run: sudo docker push marcelcernica/new-nginx:latest && sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
       - name: Build mysql image 
         run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
       - name: Push mysql image
-        run: echo $DOCKERHUB_TOKEN | docker login --username $DOCKERHUB_USERNAME --password-stdinsudo docker push marcelcernica/new-mysql:latest
+        run: sudo docker push marcelcernica/new-mysql:latest
       - name: Build wordpress image 
         run: cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:latest .
       - name: Push wordpress image
