@@ -27,5 +27,5 @@ Vagrant.configure("2") do |config|
     echo "3ee9c3b83de642f919912e0594ee2601835518827da785d034c1163f8efdf907  actions-runner-linux-x64-2.301.1.tar.gz" | shasum -a 256 -c
     tar xzf ./actions-runner-linux-x64-2.301.1.tar.gz
   
-    SHELL
+  SHELL
 end
