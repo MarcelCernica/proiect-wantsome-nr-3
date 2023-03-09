@@ -8,7 +8,9 @@ jobs:
     steps:
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
-        run: sudo docker login -u marcelcernica -p ${{ DOCKERHUB_PASSWORD }}
+        with:
+          username: marcelcernica
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: List 
