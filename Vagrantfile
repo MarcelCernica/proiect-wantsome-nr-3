@@ -21,6 +21,8 @@ Vagrant.configure("2") do |config|
     sudo chmod +x /usr/local/bin/docker-compose
     sudo usermod -aG docker $USER
     sudo chown $USER /var/run/docker.sock
+    sudo chown $USER:docker /var/run/docker.sock && sudo chmod g+rwx /var/run/docker.sock
+
 
     mkdir actions-runner && cd actions-runner
     curl -o actions-runner-linux-x64-2.301.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.301.1/actions-runner-linux-x64-2.301.1.tar.gz
