@@ -22,13 +22,12 @@ Vagrant.configure("2") do |config|
     sudo usermod -aG docker vagrant
     sudo chown vagrant /var/run/docker.sock
     sudo chown vagrant:docker /var/run/docker.sock && sudo chmod g+rwx /var/run/docker.sock
-
-
+  
     # mkdir actions-runner && cd actions-runner
     # curl -o actions-runner-linux-x64-2.302.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.302.1/actions-runner-linux-x64-2.302.1.tar.gz
     # echo "3d357d4da3449a3b2c644dee1cc245436c09b6e5ece3e26a05bb3025010ea14d  actions-runner-linux-x64-2.302.1.tar.gz" | shasum -a 256 -c
     # tar xzf ./actions-runner-linux-x64-2.302.1.tar.gz
-
   
   SHELL
+
 end
