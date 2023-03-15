@@ -19,15 +19,16 @@ Vagrant.configure("2") do |config|
     sudo apt-get install -y docker-ce
     sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
-    sudo usermod -aG docker $USER
-    sudo chown $USER /var/run/docker.sock
-    sudo chown $USER:docker /var/run/docker.sock && sudo chmod g+rwx /var/run/docker.sock
+    sudo usermod -aG docker vagrant
+    sudo chown vagrant /var/run/docker.sock
+    sudo chown vagrant:docker /var/run/docker.sock && sudo chmod g+rwx /var/run/docker.sock
 
 
-    mkdir actions-runner && cd actions-runner
-    curl -o actions-runner-linux-x64-2.301.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.301.1/actions-runner-linux-x64-2.301.1.tar.gz
-    echo "3ee9c3b83de642f919912e0594ee2601835518827da785d034c1163f8efdf907  actions-runner-linux-x64-2.301.1.tar.gz" | shasum -a 256 -c
-    tar xzf ./actions-runner-linux-x64-2.301.1.tar.gz
+    # mkdir actions-runner && cd actions-runner
+    # curl -o actions-runner-linux-x64-2.302.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.302.1/actions-runner-linux-x64-2.302.1.tar.gz
+    # echo "3d357d4da3449a3b2c644dee1cc245436c09b6e5ece3e26a05bb3025010ea14d  actions-runner-linux-x64-2.302.1.tar.gz" | shasum -a 256 -c
+    # tar xzf ./actions-runner-linux-x64-2.302.1.tar.gz
+
   
   SHELL
 end
