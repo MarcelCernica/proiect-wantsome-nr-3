@@ -13,12 +13,12 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: List 
-        run: ls -alh
+      - name: Login 
+        run: sudo docker login -u marcelcernica -p ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Build nginx image 
         run: cd apps/nginx && sudo docker build -t marcelcernica/new-nginx:latest .
       - name: Push nginx image
-        run: sudo docker login -u marcelcernica -p ${{ secrets.DOCKERHUB_PASSWORD }} && sudo docker push marcelcernica/new-nginx:latest
+        run: sudo docker push marcelcernica/new-nginx:latest
       - name: Build mysql image 
         run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:latest .
       - name: Push mysql image
