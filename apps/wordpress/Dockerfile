@@ -1,4 +1,4 @@
-FROM wordpress
+FROM wordpress:php8.2-fpm
 
 ENV WORDPRESS_DB_HOST="mysql"
 ENV WORDPRESS_DB_NAME="wordpress"
