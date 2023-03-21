@@ -1,8 +1,6 @@
-FROM wordpress:php8.2-fpm
+FROM wordpress:php8.2
 
 ENV WORDPRESS_DB_HOST="mysql"
 ENV WORDPRESS_DB_NAME="wordpress"
 ENV WORDPRESS_DB_USER="wordpress"
 ENV WORDPRESS_DB_PASSWORD="password"
-
-EXPOSE 80
