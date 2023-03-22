@@ -15,11 +15,11 @@ jobs:
       - name: Push nginx image
         run: sudo docker push marcelcernica/new-nginx:0.1
       - name: Build mysql image 
-        run: cd apps/mysql && sudo docker build -t marcelcernica/new-mysql:0.1 .
+        run: cd apps/mysql && sudo docker build --build-arg MYSQL_ROOT_PASSWORD=${{ MYSQL_ROOT_PASSWORD }} MYSQL_DATABASE={{ $MYSQL_DATABASE }} MYSQL_USER=${{ MYSQL_USER }} MYSQL_PASSWORD=${{ MYSQL_PASSWORD }} -t marcelcernica/new-mysql:0.1 .
       - name: Push mysql image
         run: sudo docker push marcelcernica/new-mysql:0.1
       - name: Build wordpress image 
-        run: cd apps/wordpress && sudo docker build -t marcelcernica/new-wordpress:0.1 .
+        run: cd apps/wordpress && sudo docker build --build-arg WORDPRESS_DB_HOST=${{ WORDPRESS_DB_HOST }} WORDPRESS_DB_NAME=${{ WORDPRESS_DB_NAME }} WORDPRESS_DB_USER=${{ WORDPRESS_DB_USER }} WORDPRESS_DB_PASSWORD=${{ WORDPRESS_DB_PASSWORD }} -t marcelcernica/new-wordpress:0.1 .
       - name: Push wordpress image
         run: sudo docker push marcelcernica/new-wordpress:0.1
       - name: Build containers and networks
